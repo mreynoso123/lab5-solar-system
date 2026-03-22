@@ -1,9 +1,6 @@
-/* body {
-    text-align: center;
-    background-color: springgreen;
-} */
-
 body {
+    /* background-color: springgreen; */
+    /* text-align: center; */
     background-color: #101418;
     color: white;
     font-family: Arial, sans-serif;
@@ -13,6 +10,11 @@ body {
 h1 {
     text-align: center;
     letter-spacing: 1px;
+}
+
+#picture {
+    display: block;
+    margin: 0 auto;
 }
 
 .navbar {
