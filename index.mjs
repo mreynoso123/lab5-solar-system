@@ -40,6 +40,13 @@ app.get('/cometInfo', (req, res) => {
     res.render('cometInfo.ejs', { cometInfo, comet });
 });
 
+app.get('/meteorInfo', (req, res) => {
+    let meteor = req.query.meteor;
+    let meteorInfo = planets.getMeteorite();
+    console.log(meteorInfo);
+    res.render('meteorInfo.ejs', { meteorInfo, meteor });
+});
+
 app.get('/nasapod', async(req, res) => {
     let today = new Date().toISOString().split('T')[0];
     let nasaImageResponse = await fetch(`https://api.nasa.gov/planetary/apod?api_key=9mUzIkhlZCZaOoMfspg7jMmwZCZ4LiRHtkgkambD&date=${today}`);
