@@ -1,4 +1,53 @@
-body {
+/* body {
     text-align: center;
     background-color: springgreen;
+} */
+
+body {
+    background-color: #101418;
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+h1 {
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.navbar {
+    border-bottom: 2px solid #0d6efd;
+}
+
+.card {
+    background-color: #1c1f24;
+    color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.container-fluid {
+    padding: 20px;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    color: #66b3ff;
+}
+
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #212529;
+    color: white;
+    margin-top: 30px;
 }
