@@ -47,7 +47,7 @@ app.get('/planetInfo', (req, res) => {
     }
 
     let planetInfo = getPlanet();
-    res.render('planetInfo.ejs', { planetInfo, planet });
+    res.render('planetinfo.ejs', { planetInfo, planet });
 });
 
 app.get('/asteroidInfo', (req, res) => {
