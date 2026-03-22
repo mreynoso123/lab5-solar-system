@@ -19,10 +19,34 @@ app.get('/', async(req, res) => {
     res.render('home.ejs', { image:randomImageURL });
 });
 
-app.get('/planetInfo', (req, res) => {
+/* app.get('/planetInfo', (req, res) => {
     let planet = req.query.planet;
     let planetInfo = planets[`get${ planet }`]();
     console.log(planetInfo);
+    res.render('planetInfo.ejs', { planetInfo, planet });
+}); */
+
+app.get('/planetInfo', (req, res) => {
+    let planet = req.query.planet;
+
+    const planetMap = {
+        Mercury: planets.getMercury,
+        Venus: planets.getVenus,
+        Earth: planets.getEarth,
+        Mars: planets.getMars,
+        Jupiter: planets.getJupiter,
+        Saturn: planets.getSaturn,
+        Uranus: planets.getUranus,
+        Neptune: planets.getNeptune
+    };
+
+    let getPlanet = planetMap[planet];
+
+    if (!getPlanet) {
+        return res.status(400).send(`Invalid planet: ${planet}`);
+    }
+
+    let planetInfo = getPlanet();
     res.render('planetInfo.ejs', { planetInfo, planet });
 });
 
