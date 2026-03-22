@@ -20,19 +20,15 @@
         <div class="container-fluid m-5 row">
             <div class="card p-4 col">
                 <h2>
-                    <%=planet%>
+                    <%=asteroid%>
                 </h2>
-                <%= planetInfo.description %><br>
-                    Distance from Sun: <%=planetInfo.distanceFromSun%> <br>
-                        Year Length: <%=planetInfo.yearLength%><br>
-                            Radius: <%=planetInfo.radius%> miles<br>
-                                Website Link: <%=planetInfo.websiteLink%><br>
-                                    One Earth Day: <%=planetInfo.oneEarthDay%><br>
-                                        Moons: <%=planetInfo.moons%>
+                <%= asteroidInfo.def %>
+                    <br>
+                    <%= asteroidInfo.link %>
             </div>
 
             <div class="card col">
-                <img src="<%= planetInfo.image %>">
+                <img src="<%= asteroidInfo.image %>">
             </div>
         </div>
         <%- include('partials/footer.ejs')%>

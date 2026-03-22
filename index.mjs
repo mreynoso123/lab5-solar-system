@@ -26,12 +26,26 @@ app.get('/planetInfo', (req, res) => {
     res.render('planetInfo.ejs', { planetInfo, planet });
 });
 
+app.get('/asteroidInfo', (req, res) => {
+    let asteroid = req.query.asteroid;
+    let asteroidInfo = planets.getAsteroids();
+    console.log(asteroidInfo);
+    res.render('asteroidInfo.ejs', { asteroidInfo, asteroid });
+});
+
+app.get('/cometInfo', (req, res) => {
+    let comet = req.query.comet;
+    let cometInfo = planets.getComets();
+    console.log(cometInfo);
+    res.render('cometInfo.ejs', { cometInfo, comet });
+});
+
 app.get('/nasapod', async(req, res) => {
-    
-    let nasaImageResponse = await fetch('https://api.nasa.gov/planetary/apod?api_key=9mUzIkhlZCZaOoMfspg7jMmwZCZ4LiRHtkgkambD&date=2026-03-11')
+    let today = new Date().toISOString().split('T')[0];
+    let nasaImageResponse = await fetch(`https://api.nasa.gov/planetary/apod?api_key=9mUzIkhlZCZaOoMfspg7jMmwZCZ4LiRHtkgkambD&date=${today}`);
     let nasaImageData = await nasaImageResponse.json();
     let nasaImageURL = nasaImageData.url;
-
+    console.log(nasaImageData)
     //don't put things after render
     res.render('nasapod.ejs', { image:nasaImageURL });
 });
